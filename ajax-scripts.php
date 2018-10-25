@@ -5,7 +5,7 @@
 			// var key = target.attr('data-product_key');
 			$.ajax({
 				type: 'POST',
-				// url: adminUrl,
+				url: '<?php echo admin_url("admin-ajax.php"); ?>';
 				data: {
 					'text' : 'hej',
 					'action': 'wp_ajax_get_singel' //this is the name of the AJAX method called in WordPress
