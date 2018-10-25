@@ -5,7 +5,7 @@
 		hej
 	</div>
 
-	<p>Taggar:</p> 
+	<p>Taggar:</p>	
 	<div class="post-contact-wrapper">
 		<form id="contact-form" method="post" action="">
 			<div class="contact-field">
@@ -27,4 +27,3 @@
 		</form>
 	</div>
 </div>
-
