@@ -1,0 +1,188 @@
+/*
+Theme Name: Urkraft Sverige
+Description: A <a href='http://codex.wordpress.org/Child_Themes'>Child Theme</a> for the Enfold Wordpress Theme. If you plan to do a lot of file modifications we recommend to use this Theme instead of the original Theme. Updating wil be much easier then.
+Version: 2.1
+Author: Ingen
+Author URI: blank
+Template: enfold
+*/
+
+
+
+/*Add your own styles here:*/
+
+/*bakgrundsfärg scroll*/
+html, #scroll-top-link {
+    background-color: #ffffff;
+    
+}
+
+/* typsnitt*/
+
+#top .inledningtext p {
+    font-size: 18px;
+}
+
+.main_color strong {
+    color: #333333;
+}
+
+h1,h2,h3,h4  {
+ font-family: "futura-pt",sans-serif;
+font-style: normal;
+font-weight: 600;
+}
+
+p, a, b, span {
+ font-family: "futura-pt",sans-serif;
+font-style: normal;
+font-weight: 400;
+}
+
+/* logon */
+#header_main  {
+  padding-top: 20px;
+	padding-bottom: 20px
+}
+
+/* Avskiljarlinjen */
+.hr-custom .hr-inner.inner-border-av-border-fat {
+    border-top-width: 10px;
+}
+
+/* Knapparna - generell styling */
+body div .avia-button {
+    border-radius: 6px;
+	
+	}
+
+.avia-button.avia-size-x-large {
+    padding: 10px 20px 10px;
+    min-width: 50px;
+}
+
+.avia_iconbox_title {
+  font-family: "futura-pt",sans-serif;  
+	font-weight: 900;
+		font-size:15px;
+}
+
+/* Puffarna */
+.avia_textblock.pufftext {
+    min-height: 155px;
+}
+
+.flex_column.av_one_third.puffar {
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .avia_textblock.pufftext {
+        min-height: 120px;
+    }
+    .flex_column.av_one_third.puffar {
+        padding-top: 65px;
+    }
+	
+}
+
+
+/* iconerna - generell styling */
+.pufficon img {
+    height: 60px;
+    width: auto;
+}
+
+/* sektion1 */
+
+.sektion1bild img {
+    max-height: 300px;
+}
+
+.avia_textblock.sektion1text {
+    min-height: 160px;
+		margin: 25px 0;
+}
+
+/*setkion 3 */
+.sektion3mobil img {
+	width: 60%;
+	margin: 0 auto;
+}
+
+/* sektion4 */
+.sektion4lev img.attachment-no.scaling.size-no.scaling {
+    padding: 15px;
+}
+
+.sektion4levmobil img.attachment-no.scaling.size-no.scaling {
+  padding: 10px;
+	height:70px;
+}
+
+@media screen and (max-width: 800px) {
+div#leverantorer {
+    background-size: 25vw !important;
+}
+}
+
+div#leverantorer {
+    background-size: 10vh;
+}
+
+/* sektion5 */
+.sektion5icon img {
+    height: 60px;
+    width: auto;
+}
+
+/* sektion6 */
+.sektion6 a {
+    font-size: 13px;
+}
+
+/* sektion7 */
+.avia_ajax_form .button {
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 18px;
+    min-width: 200px;
+		color: #333333 !important;
+	  border: none;
+}
+
+.main_color {
+    border: none;
+}
+
+/* sektion8 */
+.sektion8 .container {
+	padding:0px;
+	width:100% !important;
+	max-width:100% !important;
+	margin:0 !important;
+}
+
+.sektion8karta {
+	height:449px;
+}
+
+/* sektion 9-footer */
+div#footer {
+	min-height: 0px;
+height: 40px;
+}
+
+div#footer p {
+	margin: 0px;
+}
+
+/* ---- Inlägg ---- */
+
+/* Kontakta oss */
+
+/* Kontaktformulär */
+.post-contact-wrapper {
+	background-color: red !important;
+}
