@@ -11,6 +11,11 @@ Template: enfold
 
 /*Add your own styles here:*/
 
+/* Rensa floats */
+.clear {
+    clear: both;
+}
+
 /*bakgrundsfärg scroll*/
 html, #scroll-top-link {
     background-color: #ffffff;
@@ -171,18 +176,173 @@ div#leverantorer {
 /* sektion 9-footer */
 div#footer {
 	min-height: 0px;
-height: 40px;
+    height: 40px;
 }
 
 div#footer p {
 	margin: 0px;
 }
 
-/* ---- Inlägg ---- */
-
-/* Kontakta oss */
-
-/* Kontaktformulär */
-.post-contact-wrapper {
-	background-color: red !important;
+/*  ------- Startsidan  ------- */
+.recentposts-wrapper {
+    width: 48%;
+    padding: 1%;
+    margin: 1%;
+    display: inline-block;
 }
+.popuppost-wrapper {
+    background-color: #ffffff;
+    border-radius: 1em 0 1em 1em;
+    display: none;
+    width: 80%;
+    position: absolute;
+    margin-top: 35%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+}
+
+/* ------- Inlägg ------- */
+.page-cover {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 19, 19, 0.64);
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.post-img-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+}
+.close-post {
+    background-color: #fcda00;
+    position: fixed;
+    height: 2em;
+    width: 2em;
+    top: 0;
+    right: 0;
+    z-index: 5000;
+}
+
+.post-img-wrapper img {
+    display: block;
+    width: 100%;
+    margin: -18% 0;
+
+}
+
+.post-wrapper {
+    border-radius: 1em;
+    background-color: #ffffff;
+}
+.content-wrapper {
+    padding-bottom: 4em;
+}
+.blog-tags a, .field-oblig  {
+  color: #fcda00 !important;
+}
+
+.post-left-col {
+    padding: 2em;
+    width: 60%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.post-right-col {
+    padding: 2em;
+    width: 37%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.merattlasa-wrapper h3 {
+    margin-bottom: 2em;
+}
+
+.merattlasa-link {
+    color: #333333 !important;
+}
+
+.link-decoration {
+    color: #fcda00 !important;  
+    margin-right: 0.5em;  
+}
+.template-single-blog {
+    width: 85%;
+    margin: auto;
+}
+/* -- Kontakta oss -- */
+
+.post-contact-wrapper {
+    padding: 2em;
+    padding-bottom: 4em;
+    border-radius: 0 0 1em 1em;
+    background-color: #f7f7f7;
+}
+
+/* Vänsterkolumn */
+
+.contact-img-wrapper a {
+  color: #fcda00 !important;  
+}
+.contact-col-left {
+    width: 49%;
+    margin-right: 1%;
+    padding-right: 2%;
+    height: 100%;
+    float: left;
+}
+
+.contact-col-left h4 {
+    margin-top: 1em;
+}
+
+#contact1-wrapper {
+    display: inline-block;
+    width: 49%;
+    padding: 2%;
+    text-align: center;
+}
+
+#contact2-wrapper {
+    display: inline-block;
+    width: 49%;
+    padding: 2%;
+    text-align: center;
+}
+
+/* Högerkolumn - Kontaktformulär */
+
+.contact-col-right {
+    width: 43%;
+    margin-left: 1%;
+    height: 100%;
+    float: right;
+}
+
+.contact-col-right input, .contact-col-right textarea {
+    border: none !important;
+    border-radius: 0.2em;
+}
+
+.contact-col-right input[type="submit"] {
+    background-color: #fcda00;
+    padding-left: 3em;
+    padding-right: 3em;
+    color: #333333;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.contact-field {
+    margin-bottom: 1em; 
+}
+

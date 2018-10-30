@@ -1,29 +1,98 @@
 
 <div class="post-wrapper">
 
-	<div class="content-wrapper">
-		hej
+	<div class="post-img-wrapper">
+		<?php  the_post_thumbnail( 'full' ); ?>
+	</div>
+	
+	<div class="post-left-col">
+		<div class="content-wrapper">
+
+			<?php
+			the_content();
+
+		    //tags on single post
+			if(has_tag())
+			{
+		    	echo '<span class="blog-tags minor-meta">';
+		    	the_tags('<strong>'.__('Tags:','avia_framework').'</strong><span> ');
+		    	echo '</span></span>';
+			} ?>
+		    
+		</div>		
+	</div>
+	<div class="post-right-col">
+		<div class="merattlasa-wrapper">
+			<h3>Mer att läsa</h3>
+			
+			<?php			
+			$args = array(
+				'numberposts' => 10,
+				'offset' => 0,
+				'category' => 0,
+				'orderby' => 'post_date',
+				'order' => 'DESC',
+				'include' => '',
+				'exclude' => '',
+				'meta_key' => '',
+				'meta_value' =>'',
+				'post_type' => 'post',
+				'post_status' => 'draft, publish, future, pending, private',
+				'suppress_filters' => true
+			);	
+
+			$the_query = new WP_Query( $args );
+			// The Loop
+			if ( $the_query->have_posts() ) {
+
+				while ( $the_query->have_posts() ) {
+					$the_query->the_post();
+					echo '<p><a class="merattlasa-link" href="' . get_permalink() . '"><span class="link-decoration">>></span>' . get_the_title() . '</a></p>';
+				}
+				/* Restore original Post Data */
+				wp_reset_postdata();
+				
+			} else {
+				// no posts found
+			}	
+			wp_reset_query();
+			?>		
+		</div>
 	</div>
 
-	<p>Taggar:</p>	
 	<div class="post-contact-wrapper">
-		<form id="contact-form" method="post" action="">
-			<div class="contact-field">
-				<label for="name">För- och efternamn</label>
-				<input type="text" id="name" name="name" required>
+
+		<div class="contact-col-left">
+			<h2><?php the_field('kontakta_oss_titel', $_POST['postId']);?></h2>
+			<p class="p1"><?php the_field('kontakta_oss_text', $_POST['postId']);?></p>
+
+			<div class="contact-img-wrapper">
+
+				<div id="contact1-wrapper">
+					<img src="<?php the_field('kontakta_oss_kontaktperson_1_bild', $_POST['postId']);?>"/>
+					<h4><?php the_field('kontakta_oss_kontaktperson_1_namn', $_POST['postId']);?></h4>
+					<p><?php the_field('kontakta_oss_kontaktperson_1_tel', $_POST['postId']);?></p>
+					<p><a href="mailto:<?php the_field('kontakta_oss_kontaktperson_1_epostadress', $_POST['postId']);?>"><?php the_field('kontakta_oss_kontaktperson_1_epostadress', $_POST['postId']);?></a></p>	
+				</div>
+				<div id="contact2-wrapper">
+					<img src="<?php the_field('kontakta_oss_kontaktperson_2_bild', $_POST['postId']);?>"/>
+					<h4><?php the_field('kontakta_oss_kontaktperson_2_namn', $_POST['postId']);?></h4>
+					<p><?php the_field('kontakta_oss_kontaktperson_2_tel', $_POST['postId']);?></p>
+					<p><a href="mailto:<?php the_field('kontakta_oss_kontaktperson_2_epostadress', $_POST['postId']);?>"><?php the_field('kontakta_oss_kontaktperson_2_epostadress', $_POST['postId']);?></a></p>				
+				</div>
+
 			</div>
-			<div class="contact-field">
-				<label for="phone">Telefonnummer</label>
-				<input type="text" id="phone" name="phone" required>
-			</div>
-			<div class="contact-field">
-				<label for="email">E-postadress</label>
-				<input type="text" id="email" name="email" required>
-			</div>
-			<div class="contact-field">
-				<label for="message">Meddelande</label>
-				<textarea name="email" required></textarea>
-			</div>
-		</form>
-	</div>
+
+		</div>
+
+		<div class="contact-col-right">
+			<h2>Kontakta oss</h2>
+			<?php echo do_shortcode("[contact-form-7 id='533' title='Kontakta Oss']"); ?>
+		</div>
+
+	<div class="clear"></div>
+
+	</div> <!-- End of contact wrapper -->
+
 </div>
+
