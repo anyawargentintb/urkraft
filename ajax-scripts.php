@@ -25,6 +25,7 @@
 					'action': 'get_single_ur' //this is the name of the AJAX method called in WordPress
 				}, 
 				success: function (result) {
+					window.scrollTo(0, 0);
 					history.pushState("data","Title",postUrl);		 	
 				 	$(".popuppost-wrapper").fadeIn();
 					$(".popuppost-wrapper").html(result);

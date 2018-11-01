@@ -206,11 +206,11 @@ div#footer p {
     border-radius: 1em 0 1em 1em;
     display: none;
     width: 80%;
-    position: absolute;
-    margin-top: 50%;
-    top: 50%;
+    max-width: 1100px;
+    position: relative;
+    margin-top: 5%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
     z-index: 2000;
 }
 .popuppost-wrapper .post-wrapper {
