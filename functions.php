@@ -45,7 +45,7 @@ function latest_posts_ur( $atts ){
 	$recent_posts = get_posts( $args );
 	$post_content = ""; 
 		foreach($recent_posts as $key => $recent_post) {
-			$post_content .= '<h2>' . $recent_post->post_title . '</h2><p>' . $recent_post->post_date . '</p><a class="readmore-link" href="' . get_permalink($recent_post->ID) . '">Läs mer >></a>';
+			$post_content .= '<h2>' . $recent_post->post_title . '</h2><p>' . $recent_post->post_date . '</p><a class="readmore-link" href="' . get_permalink($recent_post->ID) . '"><div class="test"><p>Läs mer >></p></div></a>';
 		} 
 		return $post_content;
 		wp_reset_query();

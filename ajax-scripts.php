@@ -3,7 +3,6 @@
 
 		$(".readmore-link").click(function() {
 			event.preventDefault();
-			console.log(event);
 			getSingle();
 		});
 
@@ -14,9 +13,8 @@
 		});
 
 		function getSingle(e)  {
-			var target = event.target;
+			var target = event.currentTarget;
 			var postUrl = $(target).attr('href');
-			console.log(postUrl);
 			//var postId = postUrl.split('=').pop();
 			$.ajax({
 				type: 'POST',
