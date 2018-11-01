@@ -1,15 +1,19 @@
 <script>
 	jQuery(document).ready( function($) {
-
 		$(".readmore-link").click(function() {
 			event.preventDefault();
 			getSingle();
 		});
 
-		$(".page-cover").click(function() {
-			$(".page-cover").fadeOut();
+		$(".popuppost-wrapper").on('click', function(e) {
+			if (e.target !== this)
+				return;
+
+			$(".popuppost-wrapper").css("overflow", "hidden");
+			$(".popuppost-wrapper").fadeOut();
 			$(".popuppost-wrapper").fadeOut();
 			history.pushState(null, '', '/urkraft/');
+			$("html").css("overflow", "scroll");
 		});
 
 		function getSingle(e)  {
@@ -26,15 +30,23 @@
 				}, 
 				success: function (result) {
 					window.scrollTo(0, 0);
+					$("html").css("overflow", "hidden");
+					$(".popuppost-wrapper").css("overflow-y", "scroll");
 					history.pushState("data","Title",postUrl);		 	
 				 	$(".popuppost-wrapper").fadeIn();
 					$(".popuppost-wrapper").html(result);
-					$(".page-cover").fadeIn();
+					$(".popuppost-wrapper").fadeIn();
+					setTimeout( function() {$(".popuppost-wrapper").scrollTop(0)}, 10 );
 
-					$(".close-post").click(function() {
-						$(".page-cover").fadeOut();
+					$(".close-post").on('click', function(e) {
+					  if (e.target !== this)
+    					return;
+
+						$(".popuppost-wrapper").css("overflow", "hidden");
+						$(".popuppost-wrapper").fadeOut();
 						$(".popuppost-wrapper").fadeOut();
 						history.pushState(null, '', '/urkraft/');
+						$("html").css("overflow", "scroll");
 					});
 
 					initContactForm();
@@ -42,7 +54,7 @@
 					    wpcf7.initForm( $('.wpcf7-form') );
 					    $('form.wpcf7-form')
 					    .each(function() {
-					        $j(this).find('img.ajax-loader').last().remove();
+					        //$j(this).find('img.ajax-loader').last().remove();
 					    });
 					}
 
