@@ -11,7 +11,9 @@ function ajax_scripts() {
 
 function ajax_get_single_ur() {
     $url =  $_POST['postUrl'];
- 	$query = new WP_Query( array('p' => $_POST['postId']) );
+    $id = url_to_postid( $url );
+    $_POST['postId'] = $id;
+ 	$query = new WP_Query( array('p' => $id));
  	if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
     get_template_part( 'includes/loop', 'index' );
 		endwhile; 
@@ -43,7 +45,7 @@ function latest_posts_ur( $atts ){
 	$recent_posts = get_posts( $args );
 	$post_content = ""; 
 		foreach($recent_posts as $key => $recent_post) {
-			$post_content .= '<div class="recentposts-wrapper"><p>' . $recent_post->post_title . '</p><p>' . $recent_post->post_date . '</p><a class="readmore-link" href="' . $recent_post->guid . '" data-id="' . $recent_post->ID . '">Läs mer >></a></div>' ;
+			$post_content .= '<h2>' . $recent_post->post_title . '</h2><p>' . $recent_post->post_date . '</p><a class="readmore-link" href="' . get_permalink($recent_post->ID) . '">Läs mer >></a>';
 		} 
 		return $post_content;
 		wp_reset_query();
@@ -70,7 +72,7 @@ function readmore_latest_posts() {
 }
 
 function insert_ajax_target() {
-	echo '<div class="popuppost-wrapper"><div class="close-post"></div></div>';
+	echo '<div class="popuppost-wrapper"></div>';
 	echo '<div class="page-cover"></div>';
 }
 add_action( 'wp_head','insert_ajax_target' );

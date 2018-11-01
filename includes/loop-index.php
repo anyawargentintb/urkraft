@@ -2,12 +2,15 @@
 <div class="post-wrapper">
 
 	<div class="post-img-wrapper">
+		<div class="close-post">&times;</div>
 		<?php  the_post_thumbnail( 'full' ); ?>
 	</div>
 	
 	<div class="post-left-col">
 		<div class="content-wrapper">
 
+			
+			<h1><?php the_title();?></h1>
 			<?php
 			the_content();
 
@@ -47,7 +50,7 @@
 
 				while ( $the_query->have_posts() ) {
 					$the_query->the_post();
-					echo '<p><a class="merattlasa-link" href="' . get_permalink() . '"><span class="link-decoration">>></span>' . get_the_title() . '</a></p>';
+					echo '<p><span class="link-decoration">>></span><a class="merattlasa-link" href="' . get_permalink() . '">' . get_the_title() . '</a></p>';
 				}
 				/* Restore original Post Data */
 				wp_reset_postdata();
@@ -69,13 +72,28 @@
 			<div class="contact-img-wrapper">
 
 				<div id="contact1-wrapper">
-					<img src="<?php the_field('kontakta_oss_kontaktperson_1_bild', $_POST['postId']);?>"/>
+					<?php
+					if(get_field('kontakta_oss_kontaktperson_1_bild', $_POST['postId'])) { ?>
+						<img src="<?php the_field('kontakta_oss_kontaktperson_1_bild', $_POST['postId']);?>"/>
+					<?php 
+					} else { ?>
+						<img src="/urkraft/wp-content/uploads/2018/10/patrick.png"/>
+					<?php
+					} ?>
 					<h4><?php the_field('kontakta_oss_kontaktperson_1_namn', $_POST['postId']);?></h4>
 					<p><?php the_field('kontakta_oss_kontaktperson_1_tel', $_POST['postId']);?></p>
 					<p><a href="mailto:<?php the_field('kontakta_oss_kontaktperson_1_epostadress', $_POST['postId']);?>"><?php the_field('kontakta_oss_kontaktperson_1_epostadress', $_POST['postId']);?></a></p>	
 				</div>
+
 				<div id="contact2-wrapper">
-					<img src="<?php the_field('kontakta_oss_kontaktperson_2_bild', $_POST['postId']);?>"/>
+					<?php
+					if(get_field('kontakta_oss_kontaktperson_2_bild', $_POST['postId'])) { ?>
+						<img src="<?php the_field('kontakta_oss_kontaktperson_2_bild', $_POST['postId']);?>"/>
+					<?php 
+					} else { ?>
+						<img src="/urkraft/wp-content/uploads/2018/10/anders.png"/>
+					<?php
+					} ?>
 					<h4><?php the_field('kontakta_oss_kontaktperson_2_namn', $_POST['postId']);?></h4>
 					<p><?php the_field('kontakta_oss_kontaktperson_2_tel', $_POST['postId']);?></p>
 					<p><a href="mailto:<?php the_field('kontakta_oss_kontaktperson_2_epostadress', $_POST['postId']);?>"><?php the_field('kontakta_oss_kontaktperson_2_epostadress', $_POST['postId']);?></a></p>				
