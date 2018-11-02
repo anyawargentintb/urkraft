@@ -1,6 +1,7 @@
 <script>
 	jQuery(document).ready( function($) {
 		$(".readmore-link").click(function() {
+			alert("Hej!");
 			event.preventDefault();
 			getSingle();
 		});
